@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f4f4f4;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            background: #2d2d2d;
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h1 {
+            font-size: 1.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffd700;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: #ddd;
+        }
+
+        .hero .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: #ffd700;
+            color: #1a1a1a;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+            font-weight: bold;
+        }
+
+        .hero .btn:hover {
+            background: #ffed4e;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 3rem 0;
+            background: white;
+            margin: 2rem 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        section h2 {
+            color: #2d2d2d;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-image {
+            flex: 0 0 200px;
+            height: 200px;
+            background: #ffd700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #1a1a1a;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            text-align: left;
+        }
+
+        .skill-category h3 {
+            color: #ffd700;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 0.3rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .skill-category li:before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #ffd700;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .project-card h3 {
+            color: #2d2d2d;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+        }
+
+        .tag {
+            background: #fff9e6;
+            color: #b8860b;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .project-links a {
+            color: #b8860b;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .project-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-links a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: #2d2d2d;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .contact-links a:hover {
+            background: #ffd700;
+            color: #1a1a1a;
+        }
+
+        /* Footer */
+        footer {
+            background: #2d2d2d;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <h1>Your Name</h1>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container">
+            <h2>Engineering Student & Technology Enthusiast</h2>
+            <p>Passionate about AI, Cybersecurity, and Defence Technology</p>
+            <a href="#contact" class="btn">Get In Touch</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p style="margin-bottom: 1rem;">
+                        I'm a [Your Year] [Your Major] student at [Your University] with a strong interest in artificial intelligence, cybersecurity, and defence technology. My passion lies in developing ethical and responsible technology solutions that have real-world impact.
+                    </p>
+                    <p style="margin-bottom: 1rem;">
+                        Currently, I'm particularly interested in how AI can be implemented in critical infrastructure while maintaining transparency, security, and ethical standards—principles that align with initiatives like Thales's cortAIx SG and TrUE AI framework.
+                    </p>
+                    <p>
+                        Through my coursework and personal projects, I've developed skills in machine learning, secure systems design, and data analysis. I'm always eager to learn new technologies and tackle challenging problems.
+                    </p>
+                </div>
+                <div class="about-image">
+                    👤
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Programming Languages</h3>
+                    <ul>
+                        <li>Python</li>
+                        <li>Java</li>
+                        <li>C/C++</li>
+                        <li>JavaScript</li>
+                        <li>SQL</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>AI & Machine Learning</h3>
+                    <ul>
+                        <li>TensorFlow / PyTorch</li>
+                        <li>Scikit-learn</li>
+                        <li>Computer Vision</li>
+                        <li>Natural Language Processing</li>
+                        <li>Model Optimization</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Cybersecurity</h3>
+                    <ul>
+                        <li>Network Security</li>
+                        <li>Cryptography</li>
+                        <li>Secure Coding Practices</li>
+                        <li>Penetration Testing</li>
+                        <li>Security Frameworks</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Technologies</h3>
+                    <ul>
+                        <li>Git / GitHub</li>
+                        <li>Docker</li>
+                        <li>Linux</li>
+                        <li>Cloud Platforms (AWS/Azure)</li>
+                        <li>Data Visualization</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>🤖 AI-Powered Anomaly Detection System</h3>
+                    <p>Developed a machine learning model to detect unusual patterns in network traffic, achieving 94% accuracy with reduced false positives.</p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">TensorFlow</span>
+                        <span class="tag">Cybersecurity</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#">View Code →</a>
+                        <a href="#">Read More →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>🔒 Secure Communication Protocol</h3>
+                    <p>Designed and implemented an encrypted messaging system using modern cryptographic standards for secure peer-to-peer communication.</p>
+                    <div class="project-tags">
+                        <span class="tag">C++</span>
+                        <span class="tag">Cryptography</span>
+                        <span class="tag">Networking</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#">View Code →</a>
+                        <a href="#">Read More →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>📊 Predictive Maintenance Dashboard</h3>
+                    <p>Built a real-time dashboard using sensor data to predict equipment failures, helping reduce downtime by 30% in testing scenarios.</p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">IoT</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#">View Code →</a>
+                        <a href="#">Read More →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>👁️ Computer Vision Security System</h3>
+                    <p>Created an object detection system for identifying restricted items in security screening scenarios, with focus on accuracy and speed.</p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">OpenCV</span>
+                        <span class="tag">Deep Learning</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#">View Code →</a>
+                        <a href="#">Read More →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Let's Connect</h2>
+            <div class="contact-content">
+                <p>I'm always interested in discussing new opportunities, collaborations, or just talking about technology!</p>
+                <div class="contact-links">
+                    <a href="mailto:your.email@example.com">
+                        📧 Email
+                    </a>
+                    <a href="https://linkedin.com/in/yourprofile" target="_blank">
+                        💼 LinkedIn
+                    </a>
+                    <a href="https://github.com/yourusername" target="_blank">
+                        💻 GitHub
+                    </a>
+                    <a href="your-resume.pdf" target="_blank">
+                        📄 Resume
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Your Name. All rights reserved.</p>
+            <p>Built with passion for technology and innovation</p>
+        </div>
+    </footer>
+</body>
+</html>
